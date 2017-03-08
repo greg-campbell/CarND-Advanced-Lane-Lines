@@ -227,7 +227,7 @@ draw_grid(checkerboard_display_imgs, "Distorted and undistorted", img.shape[:2],
 
 ## Pipeline (single images)
 
-** Provide an example of a distortion-corrected image. **
+**Provide an example of a distortion-corrected image.**
 
 The next code cell draws the distorted and undistorted test images using the camera matrix and distance coefficients calibrated using the chessboard images.
 
@@ -366,7 +366,7 @@ def compose_diagScreen(curverad=0, offset=0, mainDiagScreen=None,
       return diagScreen
 ```
 
-** Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial. **
+**Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial.**
 
 The `fit_lanes` method in the `Lane` class (below) takes in an image that has been tranformed using the perspective transform and thresholded as described above. It uses the sliding windows method, as described in the course notes, to identify the pixels of the left and right lane lines. It then calls the `update` method of the `Lane` object's internal left and right `Line` objects to update their coefficients.
 
@@ -611,7 +611,7 @@ foo = lane.detect(cv2.imread(test_images[4]), True)
 
 ## Pipeline (video)
 
-** Provide a link to your final video output. Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!). **
+**Provide a link to your final video output. Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).**
 
 The following cells process and display the video. It can also be viewed by opening `project_video_out.mp4`.
 
@@ -663,7 +663,7 @@ HTML("""
 
 ## Discussion
 
-** Briefly discuss any problems / issues you faced in your implementation of this project. Where will your pipeline likely fail? What could you do to make it more robust? **
+**Briefly discuss any problems / issues you faced in your implementation of this project. Where will your pipeline likely fail? What could you do to make it more robust?**
 
 Sadly, as I have finite time to work on this project, I was not able to attempt the challenges. However, looking at the challenge videos, there are several cases that would be difficult to handle using my current approach. In particular:
 * Winding roads that can not be easily described using a simple 2nd order polynomial. Perhaps a spline-based approach would be better able to handle these types of roads.
