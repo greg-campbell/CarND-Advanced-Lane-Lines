@@ -222,7 +222,7 @@ draw_grid(checkerboard_display_imgs, "Distorted and undistorted", img.shape[:2],
 ```
 
 
-![png](output_4_0.png)
+![png](output_images/output_4_0.png)
 
 
 ## Pipeline (single images)
@@ -245,7 +245,7 @@ draw_grid(test_images_display, "Distorted and undistorted", test_images_display[
 ```
 
 
-![png](output_6_0.png)
+![png](output_images/output_6_0.png)
 
 
 **Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image. Provide an example of a binary image result.**
@@ -279,14 +279,14 @@ draw_grid(sample_images, "Test images, before and after thresholding", sample_im
 ```
 
 
-![png](output_8_0.png)
+![png](output_images/output_8_0.png)
 
 
     100%|██████████| 6/6 [00:00<00:00,  7.78it/s]
 
 
 
-![png](output_8_2.png)
+![png](output_images/output_8_2.png)
 
 
 **Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.**
@@ -312,7 +312,7 @@ draw_grid(birdseye_images, "Test images, before and after perspective transform"
 
 
 
-![png](output_10_1.png)
+![png](output_images/output_10_1.png)
 
 
 
@@ -606,7 +606,7 @@ foo = lane.detect(cv2.imread(test_images[4]), True)
 
 
 
-![png](output_15_1.png)
+![png](output_images/output_15_1.png)
 
 
 ## Pipeline (video)
