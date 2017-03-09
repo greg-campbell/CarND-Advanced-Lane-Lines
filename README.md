@@ -204,8 +204,8 @@ for img in tqdm(imgs):
 
 ```
 
-    100%|██████████| 20/20 [00:04<00:00,  4.94it/s]
-    100%|██████████| 20/20 [00:00<00:00, 38.95it/s]
+    100%|██████████| 20/20 [00:05<00:00,  4.44it/s]
+    100%|██████████| 20/20 [00:00<00:00, 38.43it/s]
 
 
 **Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.**
@@ -282,7 +282,7 @@ draw_grid(sample_images, "Test images, before and after thresholding", sample_im
 ![png](output_8_0.png)
 
 
-    100%|██████████| 6/6 [00:00<00:00,  7.66it/s]
+    100%|██████████| 6/6 [00:00<00:00,  7.78it/s]
 
 
 
@@ -308,7 +308,7 @@ draw_grid(birdseye_images, "Test images, before and after perspective transform"
 
 ```
 
-    100%|██████████| 6/6 [00:00<00:00, 17.02it/s]
+    100%|██████████| 6/6 [00:00<00:00, 18.88it/s]
 
 
 
@@ -412,8 +412,8 @@ class Lane():
         
         self.radius = (l_rad + r_rad)/2
         
-        xm_per_pix = 3.7/700 # meters per pixel in x dimension
-        self.offset = (160 -(l_offset + r_offset)/2)*xm_per_pix
+        xm_per_pix = 3.7/640 # meters per pixel in x dimension
+        self.offset = (img.shape[0]/2 -(l_offset + r_offset)/2)*xm_per_pix
         
         cv2.addWeighted(camera.birdseye_inverse(overlay), 0.4, toRGB(img), 0.6, 0, img)
         
@@ -548,7 +548,7 @@ class Line():
         if fit_cr == None:
             fit_cr = self.current_fit
         y_eval = 719
-        ym_per_pix = 30/720
+        ym_per_pix = 51/720 # meters per pixel in y dimension
         
         curverad = ((1 + (2*fit_cr[0]*y_eval*ym_per_pix + fit_cr[1])**2)**1.5) / np.absolute(2*fit_cr[0])
         
@@ -569,8 +569,8 @@ class Line():
             self.recent_xfitted.append(fit)
             self.current_fit = self.get_avg_fit()
             
-            ym_per_pix = 30/720 # meters per pixel in y dimension
-            xm_per_pix = 3.7/700 # meters per pixel in x dimension
+            ym_per_pix = 50/720 # meters per pixel in y dimension
+            xm_per_pix = 3.7/640 # meters per pixel in x dimension
             
             y_eval = 719
             fit_cr = np.polyfit(ys*ym_per_pix, xs*xm_per_pix, 2)
@@ -633,7 +633,7 @@ process_video("project_video.mp4", "project_video_out.mp4")
     [MoviePy] Writing video project_video_out.mp4
 
 
-    100%|█████████▉| 1260/1261 [06:21<00:00,  3.21it/s]
+    100%|█████████▉| 1260/1261 [06:40<00:00,  3.30it/s]
 
 
     [MoviePy] Done.
